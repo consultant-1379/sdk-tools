@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.ericsson.aia</groupId>
+        <artifactId>integration</artifactId>
+        <version>1.0.37</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <name>SDK Tools</name>
+    <groupId>com.ericsson.component.aia.sdk.tools</groupId>
+    <artifactId>sdk-tools</artifactId>
+    <version>1.0.52-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+    	<metadata.version>1.0.44</metadata.version>
+        <git.repository>AIA/com.ericsson.component.aia.sdk/sdk-tools</git.repository>
+        <pba.model.version>1.0.46</pba.model.version>
+    </properties>
+    
+    <modules>
+        <module>pba-utilities</module>
+		<module>git-lib</module>
+		<module>deployment-manifest-builder</module>
+		<module>dependency-resolver</module>	
+		<module>docker-dependency-util</module>
+    </modules>
+
+    <scm>
+		<developerConnection>${ericsson.scm.url}</developerConnection>
+		<connection>${ericsson.scm.url}</connection>
+		<tag>HEAD</tag>
+	</scm>
+</project>

@@ -1,0 +1,36 @@
+{
+    "id": 10,
+    "owner": {
+        "id": 1,
+        "login": "root",
+        "full_name": "",
+        "email": "root@bucket.lost",
+        "avatar_url": "http://10.44.149.69/avatars/1",
+        "username": "root"
+    },
+    "name": "aia-spark-ml-streaming",
+    "full_name": "root/aia-spark-ml-streaming",
+    "description": "",
+    "private": false,
+    "fork": false,
+    "parent": null,
+    "empty": false,
+    "mirror": false,
+    "size": 40960,
+    "html_url": "http://10.44.149.69/root/aia-spark-ml-streaming",
+    "ssh_url": "ssh://git@10.44.149.69:443/root/aia-spark-ml-streaming.git",
+    "clone_url": "http://10.44.149.69/root/aia-spark-ml-streaming.git",
+    "website": "",
+    "stars_count": 0,
+    "forks_count": 0,
+    "watchers_count": 1,
+    "open_issues_count": 0,
+    "default_branch": "master",
+    "created_at": "2017-07-07T11:23:14Z",
+    "updated_at": "2017-07-14T08:01:10Z",
+    "permissions": {
+        "admin": true,
+        "push": true,
+        "pull": true
+    }
+}

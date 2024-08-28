@@ -1,0 +1,387 @@
+{
+	"pba": {
+		"icon": "applicationLogo",
+		"authorInfo": {
+			"author": "authorName",
+			"email": "email",
+			"publishingDate": "yyyy/mm/dd hh:mm:ss z",
+			"location": "Athlone"
+		},
+		"applicationInfo": {
+			"id": "dc34-45rf-6yu7-ser5",
+			"name": "Test-Application-Name",
+			"title": "My Apache Spark SQL Application",
+			"version": "1.0.1",
+			"description": "applicationDescription"
+		},
+		"templateInfo": {
+			"id": "cc34-45rf-6yu7-ser5",
+			"name": "apache-spark-sql-template",
+			"title": "Apache Spark SQL template",
+			"version": "1.0.1",
+			"description": "test-template"
+		},
+		"scmInfo": {
+			"scm": "git://ip",
+			"scmTag": "tagName"
+		},
+		"extensionPoints": [{
+			"technology": "kafka",
+			"name": "kafka-input",
+			"uri": {
+				"protocol": "kafka://",
+				"address": "<topic_name>",
+				"args": [{
+						"key": "format",
+						"value": "<avro/json>"
+					},
+					{
+						"key": "schema",
+						"value": "<EventTypeSchema>"
+					}
+				]
+			},
+			"attributes": [{
+					"key": "bootstrap.servers",
+					"value": ["<host1:port>", "<host2:port>"]
+				},
+				{
+					"key": "group.id",
+					"value": "<group id>"
+				},
+				{
+					"key": "window.length",
+					"value": "<Window duration of the data stream>"
+				},
+				{
+					"key": "slide.window.length",
+					"value": "<Sliding window duration of the data stream>"
+				}
+			]
+		}, {
+			"technology": "file",
+			"name": "file-input",
+			"uri": {
+				"protocol": "file://",
+				"address": "{path}",
+				"args": [{
+						"key": "format",
+						"value": "<csv/text>"
+					},
+					{
+						"key": "schema",
+						"value": "<DataSchema>"
+					}
+				]
+			},
+			"attributes": [{
+					"key": "header",
+					"value": "<true/false>"
+				},
+				{
+					"key": "data.format",
+					"value": "<csv/text>"
+				},
+				{
+					"key": "skip-comments",
+					"value": "<true/false>"
+				},
+				{
+					"key": "table-name",
+					"value": "Table name to load file contents"
+				}
+			]
+		}, {
+			"technology": "hdfs",
+			"name": "hdfs-input",
+			"uri": {
+				"protocol": "hdfs://",
+				"address": "<Path to file on hdfs>",
+				"args": [{
+						"key": "format",
+						"value": "<parquet/orc/csv>"
+					},
+					{
+						"key": "schema",
+						"value": "<DataSchema>"
+					}
+				]
+			},
+			"attributes": [{
+					"key": "skip-comments",
+					"value": "<true/false>"
+				},
+				{
+					"key": "table-name",
+					"value": "Table name to load parquet/orc file contents"
+				}
+			]
+		}, {
+			"technology": "hive",
+			"name": "hive-input",
+			"uri": {
+				"protocol": "hive://",
+				"address": "<Hive table name>",
+				"args": [{
+						"key": "format",
+						"value": "<parquet/orc/csv>"
+					},
+					{
+						"key": "schema",
+						"value": "<DataSchema>"
+					}
+				]
+			},
+			"attributes": []
+		}, {
+			"technology": "alluxio",
+			"name": "alluxio-input",
+			"uri": {
+				"protocol": "alluxio://",
+				"address": "<Path to file>",
+				"args": [{
+						"key": "format",
+						"value": "<parquet/orc/csv>"
+					},
+					{
+						"key": "schema",
+						"value": "<DataSchema>"
+					}
+				]
+			},
+			"attributes": [{
+					"key": "skip-comments",
+					"value": "<true/false>"
+				},
+				{
+					"key": "table-name",
+					"value": "Table name to load parquet/orc file contents"
+				}
+			]
+		}, {
+			"technology": "jdbc",
+			"name": "jdbc-input",
+			"uri": {
+				"protocol": "JDBC://",
+				"address": "<jdbc-uri>",
+				"args": [{
+					"key": "schema",
+					"value": "<DataSchema>"
+				}]
+			},
+			"attributes": [{
+					"key": "password",
+					"value": "<passwd>"
+				},
+				{
+					"key": "user",
+					"value": "<user-name>"
+				},
+				{
+					"key": "driver",
+					"value": "<driver-class>"
+				},
+				{
+					"key": "table.name",
+					"value": "<table-name>"
+				}
+			]
+		}],
+		"integrationPoints": [{
+			"technology": "kafka",
+			"name": "kafka-output",
+			"uri": {
+				"protocol": "kafka://",
+				"address": "<topic_name>",
+				"args": [{
+						"key": "format",
+						"value": "<avro/json>"
+					},
+					{
+						"key": "schema",
+						"value": "<DataSchema>"
+					}
+				]
+			},
+			"attributes": [{
+					"key": "bootstrap.servers",
+					"value": ["<host1:port>", "<host2:port>"]
+				},
+				{
+					"key": "group.id",
+					"value": "<group id>"
+				},
+				{
+					"key": "window.length",
+					"value": "<Window duration of the data stream>"
+				},
+				{
+					"key": "slide.window.length",
+					"value": "<Sliding window duration of the data stream>"
+				}
+			]
+		}, {
+			"technology": "hdfs",
+			"name": "hdfs-output",
+			"uri": {
+				"protocol": "hdfs://",
+				"address": "<Path to file on hdfs>",
+				"args": [{
+						"key": "format",
+						"value": "<parquet/orc/csv>"
+					},
+					{
+						"key": "schema",
+						"value": "<DataSchema>"
+					}
+				]
+			},
+			"attributes": [{
+				"key": "data.save.mode",
+				"value": "Append/Overwrite/ErrorIfExists/Ignore"
+			}]
+		}, {
+			"technology": "hive",
+			"name": "hive-output",
+			"uri": {
+				"protocol": "hive://",
+				"address": "<Hive table name>",
+				"args": [{
+						"key": "format",
+						"value": "<parquet/orc/csv>"
+					},
+					{
+						"key": "schema",
+						"value": "<DataSchema>"
+					}
+				]
+			},
+			"attributes": [{
+				"key": "data.save.mode",
+				"value": "Append/Overwrite/ErrorIfExists/Ignore"
+			}]
+		}, {
+			"technology": "alluxio",
+			"name": "alluxio-output",
+			"uri": {
+				"protocol": "alluxio://",
+				"address": "<Path to file>",
+				"args": [{
+						"key": "format",
+						"value": "<parquet/orc/csv>"
+					},
+					{
+						"key": "schema",
+						"value": "<DataSchema>"
+					}
+				]
+			},
+			"attributes": [{
+					"key": "skip-comments",
+					"value": "<true/false>"
+				},
+				{
+					"key": "data.save.mode",
+					"value": "Append/Overwrite/ErrorIfExists/Ignore"
+				}
+			]
+		}, {	
+			"technology": "jdbc",
+			"name": "jdbc-output",
+			"uri": {
+				"protocol": "JDBC://",
+				"address": "<jdbc-uri>",
+				"args": [{
+					"key": "schema",
+					"value": "<POJO representing the TABLE in JDBC DB>"
+				}]
+			},
+			"attributes": [{
+					"key": "password",
+					"value": "<passwd>"
+				},
+				{
+					"key": "user",
+					"value": "<user-name>"
+				},
+				{
+					"key": "driver",
+					"value": "<driver-class>"
+				},
+				{
+					"key": "table.name",
+					"value": "<table-name>"
+				}
+			]
+		}, {		
+			"technology": "file",
+			"name": "file-output",
+			"uri": {
+				"protocol": "file://",
+				"address": "{path}",
+				"args": [{
+						"key": "format",
+						"value": "<text/csv>>"
+					},
+					{
+						"key": "schema",
+						"value": "DataSchema"
+					}
+				]
+			},
+			"attributes": []
+		}],
+		"buildInfo": {
+			"container": {
+				"docker": {
+					"name": "blwarning-volvo",
+					"repoBaseUrl": "arm.epk.ericsson.se/artifactory",
+					"repoPath": "docker-v2-global-local",
+					"imagePath": "aia/aia-blocked-events-processor/1.0.0",
+					"network": "HOST",
+					"mountPaths": ["/var/tmp/"],
+					"forcePullImage": true,
+					"privileged": true
+				}
+			},
+			"dependencies": [ "zc34-45rf-6yu7-ser5", "fc34-45rf-6yu7-ser5"]
+		},
+		"deploymentInfo": {
+			"maturity":  4,
+			"stagingStatus": true,
+			"inProduction": true,
+			"deploymentScope": "private|public",
+			"noOfInstances": "5",
+			"noOfCpuPerInstance": "5",
+			"memorySize": "1GB",
+			"servicePorts":[],
+			"envArgs": [{
+					"key": "mainClass",
+					"value": "com.ericsson.component.aia.services.bps.engine.service.BPSPipeLineExecuter"
+				},
+				{
+					"key": "masterUrl",
+					"value": "159.107.161.191:6123"
+				},
+				{
+					"key": "flowPath",
+					"value": "/var/tmp/flow-be.xml"
+				},
+				{
+					"key": "jobArguments",
+					"value": ""
+				}
+			],
+			"appArgs": [{
+					"key": "masterUrl",
+					"value": ""
+				},
+				{
+					"key": "arg2",
+					"value": "value2"
+				}
+			],
+			"attributes": []
+		}
+	}
+}

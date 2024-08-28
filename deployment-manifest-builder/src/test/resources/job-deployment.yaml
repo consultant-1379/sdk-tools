@@ -1,0 +1,39 @@
+---
+apiVersion: "batch/v1"
+kind: "Job"
+metadata:
+  annotations: {}
+  finalizers: []
+  labels: {}
+  name: "volvo-blwarning-test"
+  ownerReferences: []
+spec:
+  template:
+    spec:
+      containers:
+      - args: []
+        command: []
+        env:
+        - name: "mainClass"
+          value: "com.ericsson.component.aia.services.bps.engine.service.BPSPipeLineExecuter"
+        - name: "masterUrl"
+          value: "159.107.161.191:6123"
+        - name: "flowPath"
+          value: "/var/tmp/flow-be.xml"
+        - name: "jobArguments"
+          value: ""
+        image: "arm.epk.ericsson.se/artifactory/docker-v2-global-local/aia/aia-blocked-events-processor/1.0.0"
+        imagePullPolicy: "Always"
+        name: "blwarning-volvo"
+        ports: []
+        volumeMounts:
+        - mountPath: "/var/tmp/"
+          name: "test-vols"
+          readOnly: true
+      imagePullSecrets: []
+      nodeSelector: {}
+      restartPolicy: "OnFailure"
+      volumes:
+      - hostPath:
+          path: "/var/tmp/"
+        name: "test-vols"

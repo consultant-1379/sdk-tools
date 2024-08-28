@@ -1,0 +1,362 @@
+{
+
+	"pba": {
+		"icon": "applicationLogo",
+		"authorInfo": {
+			"author": "authorName",
+			"email": "email",
+			"publishingDate": "yyyy/mm/dd hh:mm:ss z",
+			"location": "Athlone"
+		},
+		"applicationInfo": {
+			"id": "dc34-45rf-6yu7-ser5",
+			"name": "Test-Application-Name",
+			"title": "My Apache Spark SQL Application",
+			"version": "1.0.1",
+			"description": "applicationDescription"
+		},
+		"templateInfo": {
+			"id": "cc34-45rf-6yu7-ser5",
+			"name": "apache-spark-sql-template",
+			"title": "Apache Spark SQL template",
+			"version": "1.0.1",
+			"description": "test-template"
+		},
+		"scmInfo": {
+			"scm": "git://ip",
+			"scmTag": "tagName"
+		},
+		"extensionPoints": [{
+				"technology": "kafka",
+				"name": "kafka-input",
+				"uri": {
+					"protocol": "kafka://",
+					"address": "topic_name",
+					"args": [{
+							"key": "format",
+							"value": "avro"
+						},
+						{
+							"key": "schema",
+							"value": "event1"
+						}
+					]
+				},
+				"attributes": [{
+						"key": "metadata.broker.list",
+						"value": ["localhost", "live.ericsson.se"]
+					},
+					{
+						"key": "group.id",
+						"value": "live.ericsson.se"
+					},
+					{
+						"key": "data.format",
+						"value": "json"
+					}
+				]
+			},
+			{
+				"technology": "hdfs",
+				"name": "hdfs-input",
+				"uri": {
+					"protocol": "hdfs://",
+					"address": "usr/input",
+					"dataFormat": "parquet",
+					"dataSchema": "event1",
+					"args": [{
+							"key": "format",
+							"value": "parquet"
+						},
+						{
+							"key": "schema",
+							"value": "event1"
+						}
+					]
+				},
+
+				"attributes": []
+			}, {
+				"technology": "jdbc",
+				"name": "jdbc-input",
+				"uri": {
+					"protocol": "JDBC://",
+					"address": "jdbc:postgresql://127.0.0.1:5432/aiademo",
+					"args": [{
+							"key": "format",
+							"value": "avro"
+						},
+						{
+							"key": "schema",
+							"value": "event1"
+						}
+					]
+				},
+				"attributes": [{
+						"key": "password",
+						"value": "passwd"
+					},
+					{
+						"key": "user",
+						"value": "user-name"
+					},
+					{
+						"key": "driver",
+						"value": "{driver-class}"
+					},
+					{
+						"key": "table-name",
+						"value": "table-name"
+					}
+				]
+
+			}, {
+				"technology": "hive",
+				"name": "hive-input",
+				"uri": {
+					"protocol": "hive://",
+					"address": "TABLE-NAME",
+					"args": [{
+							"key": "format",
+							"value": "parquet"
+						},
+						{
+							"key": "schema",
+							"value": "event1"
+						}
+					]
+				},
+				"attributes": []
+
+			}, {
+				"technology": "alluxio",
+				"name": "alluxio-input",
+				"uri": {
+
+					"protocol": "alluxio://",
+					"address": "usr/input",
+					"args": [{
+							"key": "format",
+							"value": "parquet"
+						},
+						{
+							"key": "schema",
+							"value": "event1"
+						}
+					]
+				},
+				"attributes": []
+			}, {
+				"technology": "file",
+				"name": "file-input",
+				"uri": {
+					"protocol": "file://",
+					"address": "{path}",
+					"dataFormat": "csv",
+					"dataSchema": "event1",
+					"args": [{
+							"key": "format",
+							"value": "parquet"
+						},
+						{
+							"key": "schema",
+							"value": "event1"
+						}
+					]
+				},
+				"attributes": []
+			}
+		],
+		"integrationPoints": [{
+
+				"technology": "kafka",
+				"name": "kafka-output",
+				"uri": {
+					"protocol": "kafka://",
+					"address": "topic_name",
+					"args": [{
+							"key": "format",
+							"value": "avro"
+						},
+						{
+							"key": "schema",
+							"value": "event1"
+						}
+					]
+				},
+				"attributes": [{
+						"key": "metadata.broker.list",
+						"value": ["localhost", "live.ericsson.se"]
+					},
+					{
+						"key": "group.id",
+						"value": "live.ericsson.se"
+					}
+				]
+
+			}, {
+				"technology": "hdfs",
+
+				"name": "hdfs-output",
+				"uri": {
+					"protocol": "hdfs://",
+					"address": "usr/input",
+					"args": [{
+							"key": "format",
+							"value": "parquet"
+						},
+						{
+							"key": "schema",
+							"value": "event1"
+						}
+					]
+				},
+				"attributes": []
+			},
+			{
+				"technology": "jdbc",
+				"name": "jdbc-output",
+				"uri": {
+					"protocol": "JDBC://",
+					"address": "jdbc:postgresql://127.0.0.1:5432/aiademo",
+					"args": [{
+							"key": "format",
+							"value": "parquet"
+						},
+						{
+							"key": "schema",
+							"value": "event1"
+						}
+					]
+				},
+				"attributes": [{
+						"key": "password",
+						"value": "passwd"
+					},
+					{
+						"key": "user",
+						"value": "user-name"
+					},
+					{
+						"key": "driver",
+						"value": "{driver-class}"
+					},
+					{
+						"key": "table-name",
+						"value": "table-name"
+					}
+				]
+			},
+			{
+				"technology": "hive",
+				"name": "hive-output",
+				"uri": {
+					"protocol": "hive://",
+					"address": "TABLE-NAME",
+					"args": [{
+							"key": "format",
+							"value": "parquet"
+						},
+						{
+							"key": "schema",
+							"value": "event1"
+						}
+					]
+				},
+				"attributes": [{
+					"key": "table-name",
+					"value": "table-name"
+				}]
+			},
+			{
+				"technology": "alluxio",
+				"name": "alluxio-output",
+				"uri": {
+					"protocol": "alluxio://",
+					"address": "usr/input",
+					"args": [{
+							"key": "format",
+							"value": "parquet"
+						},
+						{
+							"key": "schema",
+							"value": "event1"
+						}
+					]
+				},
+				"attributes": []
+			},
+			{
+				"technology": "file",
+				"name": "file-output",
+				"uri": {
+					"protocol": "file://",
+					"address": "{path}",
+					"args": [{
+							"key": "format",
+							"value": "csv"
+						},
+						{
+							"key": "schema",
+							"value": "event1"
+						}
+					]
+				},
+				"attributes": []
+			}
+		],
+		"buildInfo": {
+			"container": {
+				"docker": {
+					"name": "blwarning-volvo",
+					"repoBaseUrl": "arm.epk.ericsson.se/artifactory",
+					"repoPath": "docker-v2-global-local",
+					"imagePath": "aia/aia-blocked-events-processor/1.0.0",
+					"network": "HOST",
+					"mountPaths": ["/var/tmp/"],
+					"forcePullImage": true,
+					"privileged": true
+				}
+			},
+			"dependencies": [ "zc34-45rf-6yu7-ser5", "fc34-45rf-6yu7-ser5" 	]
+		 
+		},
+		"deploymentInfo": {
+			"maturity": 4,
+			"stagingStatus": true,
+			"inProduction": true,
+			"deploymentScope": "private|public",
+			"noOfInstances": "5",
+			"noOfCpuPerInstance": "5",
+			"memorySize": "1GB",
+			"servicePorts": [],
+			"envArgs": [{
+					"key": "mainClass",
+					"value": "com.ericsson.component.aia.services.bps.engine.service.BPSPipeLineExecuter"
+				},
+				{
+					"key": "masterUrl",
+					"value": "159.107.161.191:6123"
+				},
+				{
+					"key": "flowPath",
+					"value": "/var/tmp/flow-be.xml"
+				},
+				{
+					"key": "jobArguments",
+					"value": ""
+				}
+			],
+			"appArgs": [{
+					"key": "masterUrl",
+					"value": ""
+				},
+				{
+					"key": "arg2",
+					"value": "value2"
+				}
+			],
+			"attributes": []
+		}
+	}
+}
